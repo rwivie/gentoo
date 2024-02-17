@@ -1,0 +1,9 @@
+^sep()
+Lock,lock,system-lock-screen
+Exit,^checkout(exit),system-shutdown
+
+exit,^tag(exit)
+logout,i3-msg exit,system-log-out
+suspend,loginctl -i suspend,system-log-out
+reboot,loginctl -i reboot,system-reboot
+poweroff,loginctl -i poweroff,system-shutdown

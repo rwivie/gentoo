@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+# Define the name of the program you want to check and restart
+program_name="your_program_name"
+
+# Check if the program is running
+if pgrep -x "$program_name" > /dev/null; then
+    echo "Stopping $program_name..."
+    pkill -x "$program_name"
+    sleep 1 # Give the program some time to terminate gracefully
+fi
+
+# Start the program
+echo "Starting $program_name..."
+/path/to/your/program/executable &
+
+# Optionally, you can add a sleep command to delay execution or other logic here
+
+
+#!/bin/bash
+
+# Define the name of the program you want to check and restart
+program_name="your_program_name"
+
+# Check if the program is running
+if pgrep -x "$program_name" > /dev/null; then
+    echo "Stopping $program_name..."
+    pkill -x "$program_name"
+    sleep 1 # Give the program some time to terminate gracefully
+fi
+
+# Start the program
+echo "Starting $program_name..."
+/path/to/your/program/executable &
+
+# Optionally, you can add a sleep command to delay execution or other logic here

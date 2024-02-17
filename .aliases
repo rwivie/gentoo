@@ -1,0 +1,154 @@
+#==== aliases  /usr/bin/dbus-launch --exit-with-session /etc/X11/Sessions/openbox
+#alias startx="startx dbus-launch --sh-syntax --exit-with-session openbox-session  2> ~/.xsession-errors"
+alias startx="startx 2> ~/.xsession-errors"
+alias started="nano ~/.xinitrc"
+#==== gentoo stuff
+alias upg="sudo emaint --auto sync" #==== update the repos
+alias upd="sudo emerge --ask --verbose --update --deep --newuse @world" #==== update the system, with deps
+alias inst="sudo emerge --ask"
+alias uses="equery uses"  #==== see use flags of package
+alias alluses="emerge --info | grep ^USE"
+alias adduse="sudo euse -E"  #==== add use flag to global /etc/portage/make.conf
+alias afteruse="sudo emerge --update --deep --newuse @world"  #==== update world after adding use flags
+alias depclean="sudo emerge --ask --depclean"  #==== remove obsolete pkgs after worl update
+alias afterdepclean="sudo emerge @preserved-rebuild" #==== rebuild the applications that are dynamically linked against shared objects provided by possibly removed packages.
+alias obsolete="eix-test-obsolete" # show obsolete packages and use flags
+alias pkgs="qlist -IRv | wc -l" #==== show number of pkgs installed
+alias pkgsvb="qlist -IRv" #==== list all installed packages with version numbers
+#alias rem="sudo emerge --deselect" #==== remove package from @world; run emerge --pretend --depclean and emerge --ask --depclean after
+alias rem="sudo emerge -cav" #==== remove package -c depclean -a ask -v verbose
+alias lspkgs="qlist -IRv" #==== list all installed packages
+alias lspkg="qlist -IRv | grep" #==== list package  grep (lspkg pkgname)
+alias forcerem="sudo emerge --unmerge" #==== not recommended but can help in temporary situations 
+alias portlog="elogv"
+alias taillog="tail -f /var/log/messages"
+alias emrgftchlog="tail -f /var/log/emerge-fetch.log"
+alias genlog="sudo watch genlop --current --nocolor"
+alias emlog="sudo watch -ct 'emlop p --color'"
+alias editcfg="sudo dispatch-conf"
+alias listnews="eselect news list"
+alias readnews="eselect read news" #==== use eselect read news (#) to read news number ?
+alias showuse="emerge --info | grep ^USE" #==== show system use flags currently set
+alias showebuild="equery which --ebuild"
+alias owns="portageq * owners /" #portageq * owners / <filename> to see which package owns a file.
+alias erev="equery depends" # show reverse dependencies exampel $erev colord
+alias eixrepo="eix --installed-from-overlay" # show pkgs installed from overlay example $eixrepo guru
+alias search="emerge --search"
+alias searchdesc="emerge --searchdesc"
+alias ef="e-file" # Tell which (not) installed package provides a command using e-file ex 'ef vim'
+alias keep="sudo emerge --noreplace" # add package to world file to prevent depclean from removing it
+
+#==== equery stuff
+alias eqf='equery f'  #==== list all files installed by PKG
+alias equ='equery u'  #==== display USE flags for PKG
+alias eqh='equery h'  #==== list all packages that have USE flag
+alias eqa='equery a'  #==== list all packages for matching ENVIRONMENT data stored in /var/db/pkg
+alias eqb='equery b'  #==== list what package FILES belong to
+alias eql='equery l'  #==== list package matching PKG
+alias eqd='equery d'  #==== list all packages directly depending on ATOM
+alias eqg='equery g'  #==== display a tree of all dependencies for PKG
+alias eqc='equery c'  #==== list changelog entries for ATOM
+alias eqk='equery k'  #==== verify checksums and timestamps for PKG
+alias eqm='equery m'  #==== display metadata about PKG
+alias eqy='equery y'  #==== display keywords for specified PKG
+alias eqs='equery s'  #==== display total size of all files owned by PKG
+alias eqw='equery w'  #==== print full path to ebuild for PKG
+
+#==== openrc stuff
+#alias serv="rc-update show"
+##alias servall="rc-update show -v"
+
+#==== systemd aliases
+alias serv="systemctl --type=service"
+alias servrun="systemctl --type=service --state=running"
+alias servuser="systemctl --user --type=service"
+alias servrunuser="systemctl --user --type=service --state=running"
+alias timers="systemctl list-timers"
+alias timersall="systemctl list-timers --all"
+
+#==== journalctl aliases
+alias follow="grc journalctl -f"
+alias bootlog="journalctl -b"
+alias logerr="journalctl -p 3 -xb" # Look for errors in the log files located at /var/log, as well as high priority errors in the systemd journal
+alias xorglog="grep -e Log -e tty /var/log/Xorg.0.log"
+alias userlog="journalctl _UID=1000" # full log
+alias userlogtoday="journalctl _UID=1000 --since today" # see kournalctl_cheatsheet.txt
+#alias userlogtodayfollow="journalctl _UID=1000 --since today -f"
+alias userlogtodayfollow="grc journalctl _UID=1000 --since today -f"
+alias upjourn="sudo journalctl -b | curl -F 'file=@-' 0x0.st" #==== upload boot journal to 0x0.st
+
+#==== misc
+alias nethogs="sudo nethogs wlp6s0"
+alias nethogs-eth="sudo nethogs enp7s0"
+alias iftop="sudo iftop -i wlp6s0"
+alias iftop-eth="sudo iftop -i enp7s0"
+alias sued="sudo -i nano"
+#alias blue="sudo rc-service bluetooth restart"
+alias blue="sudo systemctl restart bluetooth"
+alias birthday="stat -c %w /"
+alias clock="tty-clock -sSctB -C 6"
+alias obxprop='xprop | grep "^_OB_APP"'
+alias duhist="dunstctl history-pop"
+alias scrot_th="scrot -t 20 -d 5 -c $HOME/Pictures/ScreenShots/`date +%Y-%m-%d_%H:%M:%S`.png"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias wioff="nmcli r wifi off"
+alias wion="nmcli r wifi on"
+alias nethogs="sudo nethogs wlp6s0"
+alias nethogs-eth="sudo nethogs enp7s0"
+alias iftop="sudo iftop -i wlp6s0"
+alias iftop-eth="sudo iftop -i enp7s0"
+alias sued="sudo -i nano"
+alias open="echo exit | strace bash -li |& grep '^open'" #see what bash opens at login
+alias icat="kitty +kitten icat"
+alias brokesym="find / -xtype l -print"
+alias dunstoff="killall -SIGUSR1 dunst"
+alias dunston="killall -SIGUSR2 dunst"
+alias inxi="inxi -Fxxz"
+#alias GPU_TEMP=`inxi -s | grep "System" | awk {'print $8, $9, $10, $11, $12'}`
+#alias CPU_TEMP=`inxi -s | grep "System" | awk {'print $3, $4, $5'}`
+alias env="printenv" # show environment variables
+alias su="su -l"
+alias nfetch="neofetch --config /home/ron/.config/neofetch/gentoo.conf"
+alias nfetch2="neofetch --config /home/ron/.config/neofetch/gentoo2.conf"
+alias nfetch3="neofetch --config /home/ron/.config/neofetch/gentoo3.conf"
+alias ffetch="fastfetch --config ~/.local/share/fastfetch/7.jsonc --logo ~/.local/share/fastfetch/logos/dab_tux_color_512.png"
+alias bt="kitty btop"
+alias xtail="grc tail -f ~/.xsession-errors | ts"
+#alias xtail="grc tail -f ~/.xsession-errors"
+alias xorgtail="grc tail -f ~/.local/share/xorg/Xorg.0.log"
+alias qtiletail="grc tail -f ~/.local/share/qtile/qtile.log"
+alias dwmlog="grc tail -f ~/.dwm.log"
+alias freemnt="sudo mount -t ufs -o ufstype=ufs2 /dev/sdb8 /mnt/freebsd"
+#alias wttr="curl wttr.in/Coleman?u"
+alias wttr="curl -s 'wttr.in/Coleman?u'"
+
+#==== for sway
+alias swayprop="swaymsg -p -t get_tree | grep app_id"
+alias swayxprop="swaymsg -p -t get_tree | grep class"
+alias swaypropsel="sleep 5 && swaymsg -t get_tree | jq -r '..|try select(.focused == true)'"
+alias swaynames="sleep 10 && swaymsg -r -t get_outputs"
+alias swaylayers="sleep 10 && swaymsg -r -t get_outputs | jq '.[0].layer_shell_surfaces | .[] | .namespace'"
+#alias sway="sway 2> ~/.sway.log"
+alias sway="sway-run"
+#alias swaypicker="grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-" # this command works but not as an alias. 
+alias swaypick="wl-color-picker"
+
+#==== for gnome wayland
+alias gnoway="XDG_SESSION_TYPE=wayland dbus-run-session gnome-session"
+
+#==== get mouse buttons
+alias mouse="xev -event button | grep button"
+
+#==== for xorg
+alias started="nano ~/.xinitrc"
+alias startx="startx 2> ~/.xsession-errors"
+alias killx="killall -u ron"
+alias xtail="grc tail -f ~/.xsession-errors | ts"
+
+#==== git
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+#==== python pip venv
+alias pyenv=". ~/Python_Venv/bin/activate" # to exit run deactivate
+
+

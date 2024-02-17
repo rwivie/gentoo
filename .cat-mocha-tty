@@ -1,0 +1,20 @@
+# catppuccin-mocha-vconsole
+# vconsole colors set printing \\e]PXRRGGBB
+# where X is terminal color, RRGGBB is a hexcolor
+echo -en \\e]P01E1E2E
+echo -en \\e]P8585B70
+echo -en \\e]P7BAC2DE
+echo -en \\e]PFA6ADC8
+echo -en \\e]P1F38BA8
+echo -en \\e]P9F38BA8
+echo -en \\e]P2A6E3A1
+echo -en \\e]PAA6E3A1
+echo -en \\e]P3F9E2AF
+echo -en \\e]PBF9E2AF
+echo -en \\e]P489B4FA
+echo -en \\e]PC89B4FA
+echo -en \\e]P5F5C2E7
+echo -en \\e]PDF5C2E7
+echo -en \\e]P694E2D5
+echo -en \\e]PE94E2D5
+clear

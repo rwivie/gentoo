@@ -1,0 +1,48 @@
+#!/bin/sh
+
+#==== load Xresources
+xrdb merge ~/.Xresources
+
+# dpms: timeout sleep off
+#xset dpms 600 900 1200
+#xset dpms 0 0 600
+# turn off system beep
+xset -b
+
+#==== set refresh rate
+# xrandr -q | grep " connected" | cut -d ' ' -f1
+xrandr --output DisplayPort-1 --mode 2560x1440 --rate 144.00
+
+#==== set dpi
+xrandr --dpi 109
+
+## super alone simulates Alt-F1
+xcape -e 'Super_L=Alt_L|F1' &
+xcape -e 'Super_R=Alt_L|F1' &
+
+#==== kunst exports
+export KUNST_SIZE="250x250"
+export KUNST_POSITION="+2270+1149"
+export KUNST_MUSIC_DIR="/home/ron/Music/"
+
+#==== for i3-volume
+#export NO_NOTIFY_COLOR
+
+#==== fzf cat-mocha
+
+#export FZF_DEFAULT_OPTS=" \
+#--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+#--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+#--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+
+if [ "$XDG_CURRENT_DESKTOP" = "i3" ]; then
+##export QT_QPA_PLATFORMTHEME="qt5ct"
+ export DESKTOP_SESSION="i3"
+fi
+
+if [ "$XDG_CURRENT_DESKTOP" = "dwm" ]; then
+##export QT_QPA_PLATFORMTHEME="qt5ct"
+ export DESKTOP_SESSION="dwm"
+fi
+

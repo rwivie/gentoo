@@ -1,0 +1,101 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": 0.59,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1022,
+               "width": 1562,
+               "x": 17,
+               "y": 43
+            },
+            "marks": [],
+            "name": "htop",
+            "percent": null,
+            "swallows": [
+               {
+               "class": "^Alacritty$",
+               "instance": "^Alacritty$",
+               "machine": "^jen2$",
+               "title": "^htop$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "marks": [],
+    "percent": 0.41,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splith",
+            "marks": [],
+            "percent": 0.71,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1022,
+                       "width": 1562,
+                       "x": 1542,
+                       "y": 43
+                    },
+                    "marks": [],
+                    "name": "follow",
+                    "percent": null,
+                    "swallows": [
+                       {
+                       "class": "^Alacritty$",
+                       "instance": "^Alacritty$",
+                       "machine": "^jen2$",
+                       "title": "^follow$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 1022,
+               "width": 1562,
+               "x": 1542,
+               "y": 1035
+            },
+            "marks": [],
+            "name": "xtail",
+            "percent": 0.29,
+            "swallows": [
+               {
+               "class": "^Alacritty$",
+               "instance": "^Alacritty$",
+               "machine": "^jen2$",
+               "title": "^xtail$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
